@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient"
+        android:padding="16dp">
+        <!-- Indikator Peringatan (Overcurrent) -->
+        <View
+            android:id="@+id/alertIndicator"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/alert_circle"
+            android:visibility="gone" />
+
+        <!-- Tombol Settings -->
+        <ImageView
+            android:id="@+id/btnSettings"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_settings"
+            app:tint="@android:color/white" />
+        <!-- Tombol About Us -->
+        <ImageView
+            android:id="@+id/btnHistory"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/btnSettings"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_info"
+            android:contentDescription="About Us"
+            app:tint="@android:color/white" />
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AERIX"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/txtSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monitoring CO | PM | Voltage | Current | Power"
+            android:textColor="#A0FFFFFF"
+            android:textSize="14sp"
+            android:layout_below="@id/txtTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp" />
+
+        <!-- STATUS CARD -->
+        <LinearLayout
+            android:id="@+id/cardStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_round"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_below="@id/txtSubtitle"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical">
+
+            <!-- TITLE (KIRI) -->
+            <TextView
+                android:id="@+id/txtStatusTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ZVS Status"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- STATUS (TENGAH) -->
+            <TextView
+                android:id="@+id/tvZVSStatus"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Inactive"
+                android:textColor="#FF4444"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- SWITCH (KANAN) -->
+            <Switch
+                android:id="@+id/switchPower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:minHeight="27dp"
+                android:textColor="@android:color/white"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <!-- CO CARD -->
+        <LinearLayout
+            android:id="@+id/cardCO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_round"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/cardStatus"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/txtCO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carbon Monoxide (CO)"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="- ppm"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <ProgressBar
+                android:id="@+id/progressCO"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:max="1000"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_colorco"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/keteranganCO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Aman"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+        <!-- CO CARD -->
+        <LinearLayout
+            android:id="@+id/cardPM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_round"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/cardCO"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/txtPM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Particulate Matter (PM2.5)"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="- µg/m³"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp" />
+
+            <ProgressBar
+                android:id="@+id/progressPM"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:max="1000"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_colorpm"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/keteranganPM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Aman"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+        <!-- ZVS & INA CARD -->
+        <LinearLayout
+            android:id="@+id/cardZVS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card_round"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/cardPM"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/txtZVSInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ZVS"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvInputVoltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIN: - V"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tvInputCurrent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I: - mA"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:layout_marginTop="6dp" />
+
+
+            <TextView
+                android:id="@+id/tvPower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="P: - W"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:layout_marginTop="6dp" />
+        </LinearLayout>
+
+        <!-- Footer Info -->
+        <TextView
+            android:id="@+id/txtInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Sync: -"
+            android:textColor="#A0FFFFFF"
+            android:textSize="12sp"
+            android:layout_below="@id/cardZVS"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+</ScrollView>
+

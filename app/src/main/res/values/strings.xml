@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AERIX</string>
+    <string name="co_current_monitoring"><![CDATA[CO & Current Monitoring]]></string>
+    <string name="co_voltage_current_monitoring"><![CDATA[CO, Voltage & current monitoring]]></string>
+    <string name="logo">Logo</string>
+    <string name="title_activity_about_us">AboutUsActivity</string>
+</resources>
